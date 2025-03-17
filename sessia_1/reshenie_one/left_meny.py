@@ -12,9 +12,10 @@ def open_new_window(_):
 
 def open_win(_):
     ''' llk'''
-    new_c_c = tk.Label(root, background='#424f7d', text='задачи',
-                       width=150, height=47)
+    new_c_c = tk.Label(root, width=150, height=47)
     new_c_c.place(x=70, y=0)
+    name = tk.Label(new_c_c, text='Список задач', font=('', 12, 'bold'))
+    name.pack(padx=20, pady=15)
 
 
 def open_bll(_):

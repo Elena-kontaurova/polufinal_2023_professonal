@@ -143,10 +143,20 @@ class TaskEmail(DataBase):
     create_date = DateTimeField()
 
 
+class TaskTask(DataBase):
+    ''' j'''
+    idtask = ForeignKeyField(Task, backref='tasktask')
+    nubver = CharField()
+    vaib = CharField()
+    opinasin = CharField()
+    name = CharField()
+    dedline = DateTimeField()
+
+
 db.connect()
 db.create_tables([Project, TaskStatus, Task, Observer, Comment,
                   Attachment, StatusHistory, ProjectPortfolio,
                   PortfolioProject, PortfolioCategory,
                   ProjectPortfolioAssociation, ProjectAnalytics,
-                  User, Email, TaskEmail], safe=True)
+                  User, Email, TaskEmail, TaskTask], safe=True)
 db.close()
