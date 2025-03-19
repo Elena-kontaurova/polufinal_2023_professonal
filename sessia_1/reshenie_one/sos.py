@@ -5,21 +5,33 @@ from tkinter import PhotoImage
 from connect_bd import TaskTask
 
 
+def open_wiw(frames, room):
+    ''' j'''
+    hhh = 450
+    for frame in frames:
+        frame.config(width=hhh)
+    mat = tk.Label(room, width=80, height=43,
+                   borderwidth=1, relief='solid', background='#424f7d')
+    mat.pack()
+
+
 def did():
     ''' jhj'''
     task = TaskTask.select()
     return task
 
 
-def mimi(taaak):
+def mimi(taaak, room):
     ''' j'''
     task = did()
+    frames = []
 
     for tasks in task:
         frame_one = tk.Frame(taaak, background='white', width=850, height=40,
                              borderwidth=1,
                              relief='solid')
         frame_one.pack(pady=5, padx=5)
+        frames.append(frame_one)
 
         haha = tk.Label(frame_one, text=f'{tasks.nubver}',
                         background='white', fg='black')
@@ -50,3 +62,15 @@ def mimi(taaak):
 
         imaima = tk.Label(frame_one, image=ima_z)
         imaima.place(x=820, y=14)
+
+        imaima.bind('<Button-1>', lambda event, f=frames: open_wiw(f, room))
+
+
+# root = tk.Tk()
+# root.geometry('900x500')
+
+# ts = tk.Frame(root, width=800, height=500)
+# ts.pack(anchor='w')
+
+# mimi(ts, root)
+# root.mainloop()

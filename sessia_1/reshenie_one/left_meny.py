@@ -16,16 +16,18 @@ def open_win(_):
     new_c_c = tk.Label(root, width=150, height=47)
     new_c_c.place(x=70, y=0)
     name = tk.Label(new_c_c, text='Список задач', font=('', 17, 'bold'))
-    name.place(x=20, y=10)
-    tast = tk.Label(new_c_c)
-    tast.place(x=14, y=50)
-    mimi(tast)
+    name.grid(row=0, column=0, columnspan=2)
+    tast = tk.Label(new_c_c, height=990)
+    tast.grid(row=1, column=0, sticky='n')
+    tt = tk.Label(new_c_c)
+    tt.grid(row=1, column=1)
+    mimi(tast, tt)
 
 
 def open_bll(_):
     ''' llk'''
     new_c_w = tk.Label(root, background='#424f7d', text='календарь',
-                       width=150, height=47)
+                       width=150, height=45)
     new_c_w.place(x=70, y=0)
 
 
