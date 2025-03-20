@@ -5,14 +5,17 @@ from tkinter import PhotoImage
 from connect_bd import TaskTask
 
 
-def open_wiw(frames, room):
+def open_wiw(frames, room, frame_one, haha, opinasin):
     ''' j'''
     hhh = 450
     for frame in frames:
         frame.config(width=hhh)
     mat = tk.Label(room, width=80, height=43,
-                   borderwidth=1, relief='solid', background='#424f7d')
+                   borderwidth=1, relief='solid', background='white')
     mat.pack()
+    frame_one.config(background='#afb2ed')
+    haha.config(background='#afb2ed')
+    opinasin.config(background='#afb2ed')
 
 
 def did():
@@ -63,7 +66,9 @@ def mimi(taaak, room):
         imaima = tk.Label(frame_one, image=ima_z)
         imaima.place(x=820, y=14)
 
-        imaima.bind('<Button-1>', lambda event, f=frames: open_wiw(f, room))
+        imaima.bind('<Button-1>', lambda event,
+                    f=frames, g=frame_one, d=haha, s=opinasin:
+                    open_wiw(f, room, g, d, s))
 
 
 # root = tk.Tk()
