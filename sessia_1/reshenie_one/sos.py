@@ -69,13 +69,3 @@ def mimi(taaak, room):
         imaima.bind('<Button-1>', lambda event,
                     f=frames, g=frame_one, d=haha, s=opinasin:
                     open_wiw(f, room, g, d, s))
-
-
-# root = tk.Tk()
-# root.geometry('900x500')
-
-# ts = tk.Frame(root, width=800, height=500)
-# ts.pack(anchor='w')
-
-# mimi(ts, root)
-# root.mainloop()
