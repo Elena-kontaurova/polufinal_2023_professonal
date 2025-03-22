@@ -1,7 +1,7 @@
 ''' j'''
 from peewee import Model, MySQLDatabase, IntegerField, ForeignKeyField, \
                     CharField, DateField, DateTimeField, TextField, \
-                    DecimalField, BooleanField
+                    DecimalField, BooleanField, AutoField
 
 db = MySQLDatabase('prodi_poluf_2023', user='root', password='lenok',
                    host='localhost', port=3306)
@@ -30,12 +30,14 @@ class Project(DataBase):
 
 class TaskStatus(DataBase):
     ''' j'''
+    id = AutoField()
     name = CharField()
     color_hex = CharField()
 
 
 class Task(DataBase):
     ''' k'''
+    id = AutoField()
     project_id = ForeignKeyField(Project, backref='task')
     full_title = CharField()
     short_title = CharField()
@@ -47,8 +49,9 @@ class Task(DataBase):
     daleted_time = DateTimeField()
     deadline = CharField()
     start_actual_time = DateTimeField()
-    finish_actual_time = DateTimeField()
-    previous_task_id = IntegerField()
+    finish_actual_time = DateTimeField(null=True)
+    previous_task_id = CharField()
+    icon = CharField()
 
 
 class Observer(DataBase):
@@ -145,6 +148,7 @@ class TaskEmail(DataBase):
 
 class TaskTask(DataBase):
     ''' j'''
+    id = AutoField()
     idtask = ForeignKeyField(Task, backref='tasktask')
     nubver = CharField()
     vaib = CharField()
