@@ -126,6 +126,20 @@ def open_wiw(frames, room, frame_one, haha, opinasin, task_id):
                     highlightbackground='#f00722',
                     highlightcolor='#f00722')
     susu.place(x=220, y=600)
+    sox.bind('<Button-1>', lambda event, m=mat, f=frames, fd=frame_one,
+             h=haha, o=opinasin:
+             close_okno(m, f, fd, h, o))
+
+
+def close_okno(ma, frames, frame_one, haha, opinasin):
+    ''' k'''
+    ma.destroy()
+    hhh = 850
+    for frame in frames:
+        frame.config(width=hhh)
+    frame_one.config(background='white')
+    haha.config(background='white')
+    opinasin.config(background='white')
 
 
 def get_status(st):

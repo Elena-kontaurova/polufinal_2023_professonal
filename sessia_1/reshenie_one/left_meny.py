@@ -2,23 +2,33 @@
 import tkinter as tk
 from tkinter import PhotoImage
 from sos import mimi
+from dashpord import dablat
 
 
 def open_new_window(_):
     ''' llk'''
-    new_c = tk.Label(root, background='#424f7d', text='дашборд',
-                     width=150, height=47)
-    new_c.place(x=70, y=0)
+    c = tk.Frame(root, width=1100, height=800)
+    c.place(x=70, y=0)
+    new_c = tk.Label(c,
+                     width=1000, height=800)
+    new_c.place(x=0, y=0)
+    text = tk.Label(new_c, text='Дашборд', font=('', 17, 'bold'))
+    text.place(x=20, y=0)
+    xyina = tk.Label(new_c, width=300, height=400)
+    xyina.place(x=20, y=50)
+    dablat(xyina)
 
 
 def open_win(_):
     ''' llk'''
-    new_c_c = tk.Label(root, width=150, height=47)
-    new_c_c.place(x=70, y=0)
+    s = tk.Frame(root, width=1100, height=800)
+    s.place(x=70, y=0, anchor='nw')
+    new_c_c = tk.Label(s, width=1050, height=700)
+    new_c_c.place(x=0, y=0, anchor='nw')
     name = tk.Label(new_c_c, text='Список задач', font=('', 17, 'bold'))
-    name.grid(row=0, column=0, columnspan=2)
-    tast = tk.Label(new_c_c, height=990)
-    tast.grid(row=1, column=0, sticky='n')
+    name.grid(row=0, column=0)
+    tast = tk.Label(new_c_c, height=1100)
+    tast.grid(row=1, column=0, sticky='nw')
     tt = tk.Label(new_c_c)
     tt.grid(row=1, column=1)
     mimi(tast, tt)
