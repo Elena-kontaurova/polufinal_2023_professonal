@@ -1,4 +1,4 @@
-''' j'''
+''' коннект с базой'''
 from peewee import Model, MySQLDatabase, IntegerField, ForeignKeyField, \
                     CharField, DateField, DateTimeField, TextField, \
                     DecimalField, BooleanField, AutoField
@@ -8,14 +8,14 @@ db = MySQLDatabase('prodi_poluf_2023', user='root', password='lenok',
 
 
 class DataBase(Model):
-    ''' k'''
+    ''' database'''
     class Meta:
-        ''' k'''
+        ''' meta'''
         database = db
 
 
 class Project(DataBase):
-    ''' k'''
+    ''' проект'''
     full_title = CharField()
     short_title = CharField()
     icon = CharField()
@@ -29,14 +29,14 @@ class Project(DataBase):
 
 
 class TaskStatus(DataBase):
-    ''' j'''
+    ''' статус задач'''
     id = AutoField()
     name = CharField()
     color_hex = CharField()
 
 
 class Task(DataBase):
-    ''' k'''
+    ''' задача'''
     id = AutoField()
     project_id = ForeignKeyField(Project, backref='task')
     full_title = CharField()
@@ -55,13 +55,13 @@ class Task(DataBase):
 
 
 class Observer(DataBase):
-    ''' k'''
+    ''' observer'''
     task_id = ForeignKeyField(Task, backref='observers')
     employee_id = IntegerField()
 
 
 class Comment(DataBase):
-    ''' k'''
+    ''' коментарии'''
     task_id = ForeignKeyField(Task, backref='comments')
     employee_id = IntegerField()
     comment_text = TextField()
@@ -69,14 +69,14 @@ class Comment(DataBase):
 
 
 class Attachment(DataBase):
-    '''m '''
+    '''attachment '''
     task_id = ForeignKeyField(Task, backref='attachments')
     file_path = CharField()
     create_date = DateTimeField()
 
 
 class StatusHistory(DataBase):
-    ''' k'''
+    ''' статус истории'''
     task_id = ForeignKeyField(Task, backref='status_history')
     old_status_id = IntegerField()
     new_status_id = IntegerField()
@@ -84,33 +84,33 @@ class StatusHistory(DataBase):
 
 
 class ProjectPortfolio(DataBase):
-    ''' j'''
+    ''' портфолио проекта'''
     name = CharField()
     description = TextField()
     create_date = DateTimeField()
 
 
 class PortfolioProject(DataBase):
-    ''' k'''
+    ''' портфолио проекиа'''
     portfolio = ForeignKeyField(ProjectPortfolio, backref='projects')
     project = ForeignKeyField(Project, backref='portfolios')
 
 
 class PortfolioCategory(DataBase):
-    ''' k'''
+    ''' категории портфолио'''
     parent_category = ForeignKeyField('self', backref='subcategories')
     name = CharField()
 
 
 class ProjectPortfolioAssociation(DataBase):
-    ''' k'''
+    ''' проект портфолии associarion'''
     project = ForeignKeyField(Project, backref='portfolios')
     portfolio = ForeignKeyField(ProjectPortfolio, backref='project')
     category = ForeignKeyField(PortfolioCategory, backref='associations')
 
 
 class ProjectAnalytics(DataBase):
-    ''' k'''
+    ''' проект аналитика'''
     project = ForeignKeyField(Project, backref='analytics')
     report_date = DateField()
     budget = DecimalField()
@@ -120,13 +120,13 @@ class ProjectAnalytics(DataBase):
 
 
 class User(DataBase):
-    ''' k'''
+    ''' пользователь'''
     full_name = CharField()
     organization = CharField()
 
 
 class Email(DataBase):
-    ''' k'''
+    ''' почта'''
     sender = ForeignKeyField(User, backref='send_email')
     recipient = ForeignKeyField(User, backref='recieved_email')
     subject = CharField()
@@ -136,7 +136,7 @@ class Email(DataBase):
 
 
 class TaskEmail(DataBase):
-    ''' k'''
+    ''' задача и почта'''
     email = ForeignKeyField(Email, backref='tasks')
     description = TextField()
     status = CharField(choices=[('Current', 'Текущая'),
@@ -147,7 +147,7 @@ class TaskEmail(DataBase):
 
 
 class TaskTask(DataBase):
-    ''' j'''
+    ''' задача краткая'''
     id = AutoField()
     idtask = ForeignKeyField(Task, backref='tasktask')
     nubver = CharField()

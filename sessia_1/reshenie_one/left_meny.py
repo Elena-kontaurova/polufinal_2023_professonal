@@ -1,4 +1,4 @@
-''' левое меню'''
+''' меню и запуск приложения'''
 import tkinter as tk
 from tkinter import PhotoImage
 from sos import mimi
@@ -6,7 +6,7 @@ from dashpord import dablat
 
 
 def open_new_window(_):
-    ''' llk'''
+    ''' открытие дашборд'''
     c = tk.Frame(root, width=1100, height=800)
     c.place(x=70, y=0)
     new_c = tk.Label(c,
@@ -20,7 +20,7 @@ def open_new_window(_):
 
 
 def open_win(_):
-    ''' llk'''
+    ''' открытие задач'''
     s = tk.Frame(root, width=1100, height=800)
     s.place(x=70, y=0, anchor='nw')
     new_c_c = tk.Label(s, width=1050, height=700)
@@ -35,7 +35,7 @@ def open_win(_):
 
 
 def open_bll(_):
-    ''' llk'''
+    ''' открытие календарь'''
     new_c_w = tk.Label(root, background='#424f7d', text='календарь',
                        width=150, height=45)
     new_c_w.place(x=70, y=0)

@@ -1,9 +1,9 @@
-''' kk'''
+''' окно дашборд'''
 import tkinter as tk
 
 
 def dablat(tak):
-    ''' k'''
+    ''' главное окно'''
     one = tk.Label(tak, width=40, height=18,
                    borderwidth=1, background='white',
                    relief='solid')

@@ -1,4 +1,4 @@
-''' k'''
+''' окно списка задач'''
 import datetime
 import tkinter as tk
 from tkinter import PhotoImage
@@ -6,7 +6,7 @@ from connect_bd import TaskTask, Task, TaskStatus
 
 
 def open_wiw(frames, room, frame_one, haha, opinasin, task_id):
-    ''' j'''
+    ''' откртие список задач полный'''
     hhh = 450
     for frame in frames:
         frame.config(width=hhh)
@@ -132,7 +132,7 @@ def open_wiw(frames, room, frame_one, haha, opinasin, task_id):
 
 
 def close_okno(ma, frames, frame_one, haha, opinasin):
-    ''' k'''
+    ''' закрытие окна о полной задаче'''
     ma.destroy()
     hhh = 850
     for frame in frames:
@@ -143,25 +143,25 @@ def close_okno(ma, frames, frame_one, haha, opinasin):
 
 
 def get_status(st):
-    ''' j'''
+    ''' получение статусов'''
     status = TaskStatus.get(TaskStatus.id == st)
     return status.id
 
 
 def get_task_details(task_id):
-    ''' u'''
+    ''' получение полных задач'''
     taskii = Task.get(Task.id == task_id)
     return taskii
 
 
 def did():
-    ''' jhj'''
+    ''' получение краткой инфы задач'''
     task = TaskTask.select()
     return task
 
 
 def mimi(taaak, room):
-    ''' j'''
+    ''' главное окно краткие задачи'''
     task = did()
     frames = []
 
