@@ -7,6 +7,9 @@ a = 10
 def dablat(tak):
     ''' главное окно'''
     global text_o, kol_one, kol_two, kol_three
+
+    # первое сверху
+
     one = tk.Label(tak, width=40, height=18,
                    borderwidth=1, background='white',
                    relief='solid')
@@ -25,6 +28,9 @@ def dablat(tak):
     text_govno = tk.Label(one, text='Задач выполнено за сегодня',
                           font=('', 15), background='white')
     text_govno.place(x=7, y=190)
+
+    # первое снизу
+
     one_nu = tk.Label(tak, width=40, height=18,
                       borderwidth=1, background='white',
                       relief='solid')
@@ -50,6 +56,9 @@ def dablat(tak):
                    font=('', 12),
                    background='white')
     xax.place(x=10, y=80)
+
+    # второе сверху
+
     two = tk.Label(tak, width=40, height=18,
                    borderwidth=1, background='white',
                    relief='solid')
@@ -104,6 +113,9 @@ def dablat(tak):
     kol_three = tk.Label(two, text=a, background='white')
     kol_three.place(x=225, y=160)
     two.place(x=360, y=0)
+
+    # третье сверху
+
     three = tk.Label(tak, width=40, height=18,
                      borderwidth=1, background='white',
                      relief='solid')
@@ -114,6 +126,9 @@ def dablat(tak):
                        font=('', 15), background='white')
     text_go.place(x=40, y=110)
     three.place(x=725, y=0)
+
+    # второе снизу
+
     nn = tk.Label(tak, width=92, height=18,
                   borderwidth=1, background='white',
                   relief='solid')
@@ -127,7 +142,7 @@ def dablat(tak):
 
 
 def plus():
-    ''' d'''
+    ''' счетчик плюс'''
     global a
     a = a + 1
     text_o.config(text=f'{a}')
@@ -137,7 +152,7 @@ def plus():
 
 
 def mnus():
-    ''' k'''
+    ''' счетчик минус'''
     global a
     a = a - 1
     text_o.config(text=f'{a}')
